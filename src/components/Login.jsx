@@ -179,10 +179,6 @@ const Login = () => {
               </div>
             </div>
 
-            {/* Forgot Password */}
-            <div className="d-flex justify-content-end mb-4">
-              <a href="#" className="forgot-link">Forgot password?</a>
-            </div>
 
             {/* Submit */}
             <button type="submit" className="btn btn-primary btn-login w-100 mb-3">
@@ -195,7 +191,7 @@ const Login = () => {
 
           <hr className="login-divider" />
           <p className="signup-text text-center mb-0">
-            Don't have an account? <a href="#">Create one free</a>
+            Don't have an account? <a href="/sign-up">Create one free</a>
           </p>
         </div>
       </div>
