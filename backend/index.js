@@ -9,7 +9,7 @@ const port = 3000;
 const app = express();
 
 app.use(cors({
-    origin: ['http://localhost:5173', 'http://localhost:5174'],
+    origin: ['http://localhost:5173', 'http://localhost:5174','https://frontend-ruddy-eta-83.vercel.app'],
     credentials: true,
 }));
 

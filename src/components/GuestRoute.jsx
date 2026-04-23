@@ -6,7 +6,7 @@ const GuestRoute = ({ children }) => {
   const [isAuth, setIsAuth] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/auth/check-access", {
+    fetch("https://lost-found-uapb.onrender.com/api/auth/check-access", {
       credentials: "include",
     })
       .then((res) => res.json())

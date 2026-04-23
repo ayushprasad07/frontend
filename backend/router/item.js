@@ -8,7 +8,7 @@ const Item = require('../models/Item');
 
 router.post('/', authMiddleware, async (req, res) => {
     try {
-        const userId = req.user.id;
+        const userId = req.user.userId;
         const {itemName, Description, type, Location, date,contactInfo} = req.body;
 
         if(!itemName || !Description || !type || !Location || !date || !contactInfo){
@@ -132,9 +132,9 @@ router.get("/:id",authMiddleware, async (req,res)=>{
 
 // update bbok details
 
-router.put("/:id", async (req,res)=>{
+router.put("/:id", authMiddleware, async (req,res)=>{
     try {
-        const userId = req.user.id;
+        const userId = req.user.userId;
         const {id} = req.params;
 
         if(!id){
@@ -164,7 +164,7 @@ router.put("/:id", async (req,res)=>{
             })
         }
 
-        const newitem = await items.findByIdAndUpdate({
+        const newitem = await Item.findByIdAndUpdate({
             _id : id
         }, {
             $set : req.body
@@ -188,9 +188,9 @@ router.put("/:id", async (req,res)=>{
 
 // /:id delete an item by id
 
-router.delete("/:id", async (req,res)=>{
+router.delete("/:id", authMiddleware, async (req,res)=>{
     try {
-        const userId = req.user.id;
+        const userId = req.user.userId;
         const {id} = req.params;
 
         if(!id){

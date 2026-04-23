@@ -111,8 +111,8 @@ router.post(
 
         res.cookie("token", token, {
           httpOnly: true,
-          secure: true,
-          sameSite: "None",
+          secure: process.env.NODE_ENV === "production",
+          sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
         });
 
         res.status(200).json({success: true, message: "User logged in" });
