@@ -11,6 +11,10 @@ const Login = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleSignUp = () => {
+    navigate("/sign-up");
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -191,8 +195,9 @@ const Login = () => {
 
           <hr className="login-divider" />
           <p className="signup-text text-center mb-0">
-            Don't have an account? <a href="/sign-up">Create one free</a>
+            Don't have an account?
           </p>
+          <button onClick={handleSignUp} className="btn btn-outline-primary w-100 btn-login text-white">Sign up</button>
         </div>
       </div>
     </>
