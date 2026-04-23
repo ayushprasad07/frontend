@@ -125,7 +125,11 @@ router.post(
 });
 
 router.get("/logout", (req, res) => {
-    res.clearCookie("token");
+    res.clearCookie("token", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
+    });
     res.status(200).json({success: true, message: "User logged out" });
 })
 
